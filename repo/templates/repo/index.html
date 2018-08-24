@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% if model %}
+        <ul>
+            {% for record in model %}
+                <li><a href="{% url 'repo:detail' record.id %}">{{ record.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Non ci sono records.</p>
+    {% endif %}
+{% endblock %}

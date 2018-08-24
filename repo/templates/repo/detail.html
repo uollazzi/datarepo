@@ -1,0 +1,13 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+    {% if model %}
+        <ul>
+            {% for f in model %}
+                <li>{{ f.field.name }}: {{ f.value }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Non ci sono campi.</p>
+    {% endif %}
+{% endblock %}
