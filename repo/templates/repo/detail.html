@@ -1,13 +1,27 @@
-{% extends "app/layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
-    {% if model %}
-        <ul>
-            {% for f in model %}
-                <li>{{ f.field.name }}: {{ f.value }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Non ci sono campi.</p>
-    {% endif %}
+
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <div id="app">
+        <form action="{% url 'repo:detail' id %}" method="post">
+            {% csrf_token %}
+            {% comment %}<input type="text" name="name" id="name" value="{{ record.name }}"><br>
+                <ul>
+                    {% for f in fields %}
+                        <li>{{ f.field.name }}: <input type="text" name="fields[]{{ f.field.name }}"
+                                                       value="{{ f.value }}"></li>
+                    {% endfor %}
+                </ul>{% endcomment %}
+            {{ form }}<br>
+            <input type="submit" value="Salva">
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
 {% endblock %}

@@ -30,6 +30,7 @@ class RecordFields(models.Model):
     value = models.TextField()
 
 
+# ADMIN
 class RecordFieldsInline(admin.TabularInline):
     model = RecordFields
     extra = 1
