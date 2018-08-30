@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'datarepo',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': ''
+        'PASSWORD': 'asd'
     }
 }
 
